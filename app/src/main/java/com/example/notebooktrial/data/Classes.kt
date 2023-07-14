@@ -1,4 +1,4 @@
-package com.example.notebooktrial
+package com.example.notebooktrial.data
 
 // Course class
 data class Course(val courseName: String, val units: List<CourseUnit>)

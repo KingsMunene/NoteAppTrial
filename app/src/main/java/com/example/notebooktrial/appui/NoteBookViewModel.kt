@@ -1,6 +1,8 @@
-package com.example.notebooktrial
+package com.example.notebooktrial.appui
 
 import androidx.lifecycle.ViewModel
+import com.example.notebooktrial.data.CourseUnit
+import com.example.notebooktrial.data.DataManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
@@ -9,15 +11,18 @@ class NoteBookViewModel : ViewModel(){
     private var uiState = MutableStateFlow(DataManager)
 
     // Backing property
-
     val _uiState = uiState.asStateFlow()
+
+
+    // Units ArrayList that will be loaded by calling the get units function
+    var units = ArrayList<CourseUnit>()
 
 
     /** Function to get units for a specific course
      * It receives a course name and uses it to get a list of units associated to that
      * course
      * **/
-    fun getUnits(course: String): List<CourseUnit> {
+    fun getUnits(course: String): ArrayList<CourseUnit> {
         var units: List<CourseUnit> = ArrayList()
 
         DataManager.courses.forEach {
@@ -26,7 +31,7 @@ class NoteBookViewModel : ViewModel(){
                 units = it.units
             }
         }
-        return units
+        return units as ArrayList<CourseUnit>
 
     }
 

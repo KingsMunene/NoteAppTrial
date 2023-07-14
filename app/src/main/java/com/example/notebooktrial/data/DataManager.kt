@@ -1,4 +1,4 @@
-package com.example.notebooktrial
+package com.example.notebooktrial.data
 
 object DataManager {
 
@@ -17,9 +17,9 @@ object DataManager {
 
         // BIT
         units.add(CourseUnit("Introduction to business studies", ""))
-        units.add(CourseUnit("Principles of Marketing", ""))
+        units.add(CourseUnit("Principles of Marketing", "PrinciplesOfMarketing.pdf"))
         units.add(CourseUnit("Computer Architecture", ""))
-        units.add(CourseUnit("Intro to Programming and Algorithms", ""))
+        units.add(CourseUnit("Intro to Programming and Algorithms", "IntrotoProgramming.pdf"))
         units.add(CourseUnit("Intro to Computer Applications and Packages", ""))
         units.add(CourseUnit("Foundation Maths", ""))
         units.add(CourseUnit("Communication Skills", ""))
@@ -29,7 +29,7 @@ object DataManager {
         units.add(CourseUnit("Database systems",""))
         units.add(CourseUnit("Basic Discrete Maths",""))
         units.add(CourseUnit("Fundamentals Of Internet",""))
-        units.add(CourseUnit("Structured Programming",""))
+        units.add(CourseUnit("Structured Programming","C++.pdf"))
         units.add(CourseUnit("Principles Of Management",""))
         units.add(CourseUnit("Digital Electronics and Logic",""))
         units.add(CourseUnit("Object Oriented Programming 1",""))
@@ -69,7 +69,7 @@ object DataManager {
         units.add(CourseUnit("Total Quality Management",""))
         units.add(CourseUnit("Network Programming",""))
         units.add(CourseUnit("Distributed Systems",""))
-        courses.add(Course("Information Technology",units))
+        courses.add(Course("Information Technology", units))
 
         //BBIT
         units = ArrayList()
@@ -78,7 +78,7 @@ object DataManager {
         units.add(CourseUnit("Database systems",""))
         units.add(CourseUnit("Structured Programming",""))
         units.add(CourseUnit("Operating System and Design",""))
-        courses.add(Course("Business Information Technology",units))
+        courses.add(Course("Business Information Technology", units))
 
 
     }
