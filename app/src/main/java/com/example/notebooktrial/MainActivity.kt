@@ -21,13 +21,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.notebooktrial.appui.CoursesList
 import com.example.notebooktrial.appui.NoteBookViewModel
+import com.example.notebooktrial.appui.PdfDocViewer
 import com.example.notebooktrial.appui.UnitsList
 
 import com.example.notebooktrial.ui.theme.NoteBookTrialTheme
 
 enum class Screen(){
     Start,
-    Units
+    Units,
+    Pdfviewer
 }
 
 class MainActivity : ComponentActivity() {
@@ -73,11 +75,20 @@ fun HomeScreen(
             )
         }
 
+        // Composable to display the list of units
         composable(Screen.Units.name){
             UnitsList(
                 units = noteBookViewModel.units,
-                onUnitClicked = {fileName -> }
+                onUnitClicked = {
+                        fileName -> noteBookViewModel.fileName = fileName
+                    navController.navigate(Screen.Pdfviewer.name)
+                }
             )
+        }
+
+        // Composable to display the Pdf files
+        composable(Screen.Pdfviewer.name){
+            PdfDocViewer(noteBookViewModel.fileName)
         }
     }
 
