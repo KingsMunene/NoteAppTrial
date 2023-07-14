@@ -17,6 +17,10 @@ class NoteBookViewModel : ViewModel(){
     // Units ArrayList that will be loaded by calling the get units function
     var units = ArrayList<CourseUnit>()
 
+    // Unit clicked file name
+
+    var fileName: String = ""
+
 
     /** Function to get units for a specific course
      * It receives a course name and uses it to get a list of units associated to that
@@ -34,6 +38,7 @@ class NoteBookViewModel : ViewModel(){
         return units as ArrayList<CourseUnit>
 
     }
+
 
 
 }
