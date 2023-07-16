@@ -31,6 +31,7 @@ import com.airbnb.lottie.Lottie
 import com.airbnb.lottie.LottieComposition
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.notebooktrial.appui.CoursesList
@@ -122,7 +123,8 @@ fun SplashScreen(navigate: () -> Unit) {
 
     // Get the progress of the animation
     val progress by animateLottieCompositionAsState(
-        composition = composition
+        composition = composition,
+        iterations = 2
     )
 
     // If the animation completes playing navigate to the next screen
@@ -136,7 +138,10 @@ fun SplashScreen(navigate: () -> Unit) {
         modifier = Modifier.fillMaxSize()
 
         ) {
-        LottieAnimation(composition = composition )
+        LottieAnimation(
+            composition = composition,
+            progress = { progress }
+        )
     }
 
 }
