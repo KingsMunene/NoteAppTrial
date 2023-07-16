@@ -1,8 +1,10 @@
 package com.example.notebooktrial
 
 import android.os.Bundle
+import android.window.SplashScreen
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -10,6 +12,8 @@ import androidx.compose.material3.Surface
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,6 +23,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.airbnb.lottie.LottieComposition
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.notebooktrial.appui.CoursesList
 import com.example.notebooktrial.appui.NoteBookViewModel
 import com.example.notebooktrial.appui.PdfDocViewer
@@ -29,7 +37,8 @@ import com.example.notebooktrial.ui.theme.NoteBookTrialTheme
 enum class Screen(){
     Start,
     Units,
-    Pdfviewer
+    Pdfviewer,
+    Splash
 }
 
 class MainActivity : ComponentActivity() {
@@ -62,7 +71,7 @@ fun HomeScreen(
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Start.name,
+        startDestination = Screen.Splash.name,
         modifier = Modifier
     ){
         composable(Screen.Start.name){
@@ -90,8 +99,26 @@ fun HomeScreen(
         composable(Screen.Pdfviewer.name){
             PdfDocViewer(noteBookViewModel.fileName)
         }
+
+        //Splash Screen composable
+        composable(Screen.Splash.name){
+            SplashScreen()
+        }
     }
 
+}
+
+
+@Composable
+fun SplashScreen() {
+    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.v1))
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier.fillMaxSize()
+
+        ) {
+        LottieAnimation(composition = composition)
+    }
 }
 
 
