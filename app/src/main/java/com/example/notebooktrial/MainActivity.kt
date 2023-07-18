@@ -124,7 +124,7 @@ fun SplashScreen(navigate: () -> Unit) {
     // Get the progress of the animation
     val progress by animateLottieCompositionAsState(
         composition = composition,
-        iterations = 2
+        iterations = 1
     )
 
     // If the animation completes playing navigate to the next screen

@@ -1,5 +1,6 @@
 package com.example.notebooktrial.appui
 
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.ViewModel
 import com.example.notebooktrial.data.CourseUnit
 import com.example.notebooktrial.data.DataManager
@@ -38,7 +39,5 @@ class NoteBookViewModel : ViewModel(){
         return units as ArrayList<CourseUnit>
 
     }
-
-
 
 }
