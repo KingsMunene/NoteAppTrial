@@ -5,10 +5,12 @@ import android.window.SplashScreen
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -128,19 +130,27 @@ fun SplashScreen(navigate: () -> Unit) {
     )
 
     // If the animation completes playing navigate to the next screen
-    LaunchedEffect(key1 = progress){
-        if (progress == 1f) run {
-            navigate()
+    Column {
+        LaunchedEffect(key1 = progress) {
+            if (progress == 1f) run {
+                navigate()
+            }
         }
-    }
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxSize()
 
         ) {
-        LottieAnimation(
-            composition = composition,
-            progress = { progress }
+            LottieAnimation(
+                composition = composition,
+                progress = { progress }
+            )
+
+        }
+
+        Text(
+            text = "Comrade Buddy",
+            style = MaterialTheme.typography.titleLarge
         )
     }
 
